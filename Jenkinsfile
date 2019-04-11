@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Download build from git') {
       steps {
-        git '${buildURL}'
+        git '"${buildURL}"'
       }
     }
   }
