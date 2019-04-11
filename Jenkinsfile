@@ -28,10 +28,7 @@ pipeline {
     }
     stage('Execute scripts') {
       steps {
-        script {
-          println "%cd%"
-        }
-
+        bat 'ExecuteScripts.bat'
       }
     }
   }
