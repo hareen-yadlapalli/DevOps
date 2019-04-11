@@ -1,9 +1,11 @@
+def buildURL
 pipeline {
   agent any
   stages {
     stage('Print Pipeline Parameters') {
       steps {
         script {
+          println "gitURL: ${params.gitURL}"
           println "Build Number: ${params.BuildNum}"
           println "Is Restart Required: ${params.CanRestartServer}"
           println "Target Environment: ${params.targetEnv}"
@@ -14,13 +16,16 @@ pipeline {
           println "Implementation Scripts: ${params.ImplScripts}"
           println "Rollback Scripts Location: ${params.RBScriptsLoc}"
           println "Rollback Scripts: ${params.RBScripts}"
+          buildURL="${params.gitURL}/${params.BuildNum}.git"
+          println "${buildURL}"
         }
 
       }
     }
   }
   parameters {
-    string(name: 'BuildNum', defaultValue: 'BuildNum', description: 'Build Number Eg Release-153')
+    string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
+    string(name: 'BuildNum', defaultValue: 'BuildNum', description: 'Build Number Eg Release1')
     booleanParam(name: 'CanRestartServer', defaultValue: 'false', description: 'Is Restart Required')
     choice(name: 'targetEnv', choices: '''DEV
 SYS
