@@ -34,7 +34,7 @@ pipeline {
     }
     stage('Execute Scripts') {
       steps {
-        bat 'ExecuteScripts.bat'
+        bat 'ExecuteScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}"'
       }
     }
   }
