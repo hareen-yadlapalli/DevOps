@@ -26,11 +26,12 @@ pipeline {
         git "${buildURL}"
       }
     }
-	stage('Execute scripts') {
+    stage('Execute scripts') {
       steps {
         script {
           println "%cd%"
         }
+
       }
     }
   }
