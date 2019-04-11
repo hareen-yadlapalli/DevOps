@@ -21,6 +21,11 @@ pipeline {
 
       }
     }
+    stage('Download build from git') {
+      steps {
+        git '${buildURL}'
+      }
+    }
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
