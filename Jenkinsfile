@@ -23,13 +23,18 @@ pipeline {
     }
     stage('Checkout from git') {
       steps {
-                checkout([$class: 'GitSCM', 
-        branches: [[name: '*/master']], 
-        doGenerateSubmoduleConfigurations: false, 
-        extensions: [[$class: 'RelativeTargetDirectory', 
-            relativeTargetDir: 'BuildDir']], 
-        submoduleCfg: [], 
-        userRemoteConfigs: [[url: "${buildURL}"]]])
+        checkout([$class: 'GitSCM', 
+                branches: [[name: '*/master']], 
+                doGenerateSubmoduleConfigurations: false, 
+                extensions: [[$class: 'RelativeTargetDirectory', 
+                    relativeTargetDir: 'BuildDir']], 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[url: "${buildURL}"]]])
+      }
+    }
+    stage('Execute Scripts') {
+      steps {
+        bat 'ExecuteScripts.bat'
       }
     }
   }
