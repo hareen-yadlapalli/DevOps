@@ -4,7 +4,17 @@ pipeline {
     stage('Print Pipeline Parameters') {
       steps {
         script {
-          println "${params.DBUser}"
+          println "Build Number: ${params.BuildNum}"
+          println "Is Restart Required: ${params.CanRestartServer}"
+          println "Target EnvironmentL ${params.targetEnv}"
+          println "Database Server Name: ${params.DBServerName}"
+          println "Database User Name: ${params.DBUserName}"
+          println "Database Password: ${params.DBUserPwd}"
+          println "Implementation Scripts Location: ${params.ImplScriptsLoc}"
+          println "Implementation Scripts: ${params.ImplScripts}"
+          println "Rollback Scripts Location: ${params.RBScriptsLoc}"
+          println "Rollback Scripts: ${params.RBScripts}"
+          
         }
 
       }
@@ -13,6 +23,7 @@ pipeline {
   parameters {
     string(name: 'BuildNum', defaultValue: 'BuildNum', description: 'Build Number Eg Release-153')
     booleanParam(name: 'CanRestartServer', defaultValue: 'false', description: 'Is Restart Required')
+    string(name: 'targetEnv', defaultValue: 'DEV', description: 'Target Environment Eg mydesktop')
     string(name: 'DBServerName', defaultValue: 'localhost', description: 'Database Server Name Eg mydesktop')
     string(name: 'DBUserName', defaultValue: 'demouser', description: 'Database User Name Eg demouser')
     string(name: 'DBUserPwd', defaultValue: 'demopwd', description: 'Database User Password Eg demopwd')
