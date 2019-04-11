@@ -1,4 +1,3 @@
-def buildURL
 pipeline {
   agent any
   stages {
