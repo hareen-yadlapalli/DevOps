@@ -21,16 +21,6 @@ pipeline {
 
       }
     }
-    stage('Download build from git') {
-      steps {
-        git "${buildURL}"
-      }
-    }
-    stage('Execute scripts') {
-      steps {
-        bat 'ExecuteScripts.bat'
-      }
-    }
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
