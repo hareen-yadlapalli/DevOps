@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Print Pipeline Parameters') {
+    stage('Print pipeline parameters') {
       steps {
         script {
           println "gitURL: ${params.gitURL}"
@@ -24,6 +24,13 @@ pipeline {
     stage('Download build from git') {
       steps {
         git "${buildURL}"
+      }
+    }
+	stage('Execute scripts') {
+      steps {
+        script {
+          println "%cd%"
+        }
       }
     }
   }
