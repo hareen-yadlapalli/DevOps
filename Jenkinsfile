@@ -14,7 +14,6 @@ pipeline {
           println "Implementation Scripts: ${params.ImplScripts}"
           println "Rollback Scripts Location: ${params.RBScriptsLoc}"
           println "Rollback Scripts: ${params.RBScripts}"
-          
         }
 
       }
