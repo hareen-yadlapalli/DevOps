@@ -40,7 +40,7 @@ pipeline {
     stage('Deploy app to tomcat') {
       steps {
         script {
-          curl -u mgrscript:mgrscript -X PUT -F "file=SampleWebApp.war" http://localhost:6080/manager/text/deploy?path=/SampleWebApp
+          curl -u mgrscript:mgrscript -X PUT -F "file=BuildDir\SampleWebApp.war" http://localhost:6080/manager/text/deploy?path=/SampleWebApp
         }
       }
     }
