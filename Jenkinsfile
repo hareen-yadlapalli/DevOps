@@ -29,6 +29,7 @@ pipeline {
                         extensions: [[$class: 'RelativeTargetDirectory', 
                             relativeTargetDir: 'BuildDir']], 
                         submoduleCfg: [], 
+                        credentialsId: 'b9e43d47d231e4be8f7a6a6080a43f008fd964f7',
                         userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
