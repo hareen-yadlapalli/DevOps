@@ -24,17 +24,22 @@ pipeline {
     stage('Checkout from git') {
       steps {
         checkout([$class: 'GitSCM', 
-                branches: [[name: '*/master']], 
-                doGenerateSubmoduleConfigurations: false, 
-                extensions: [[$class: 'RelativeTargetDirectory', 
-                    relativeTargetDir: 'BuildDir']], 
-                submoduleCfg: [], 
-                userRemoteConfigs: [[url: "${buildURL}"]]])
+                        branches: [[name: '*/master']], 
+                        doGenerateSubmoduleConfigurations: false, 
+                        extensions: [[$class: 'RelativeTargetDirectory', 
+                            relativeTargetDir: 'BuildDir']], 
+                        submoduleCfg: [], 
+                        userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
     stage('Execute Scripts') {
       steps {
         bat 'ExecuteScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}"'
+      }
+    }
+    stage('Deploy app to tomcat') {
+      steps {
+        echo '123'
       }
     }
   }
