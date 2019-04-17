@@ -42,6 +42,17 @@ pipeline {
          bat 'DeployApp.bat' 
       }
     }
+    stage('Stop Server') {
+      steps {
+         bat 'stopServer.bat' 
+      }
+    }
+    stage('Start Server') {
+      steps {
+         bat 'startServer.bat' 
+      }
+    }
+
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
