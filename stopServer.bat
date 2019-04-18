@@ -6,5 +6,5 @@ REM setx JAVA_HOME "C:\Program Files\Java\jdk1.8.0_201"
 echo testing
 set JAVA_HOME="C:\ProgramFiles\Java\jdk1.8.0_201"
 echo %JAVA_HOME%
-setx PATH "%PATH%;%JAVA_HOME%\bin"
+set PATH="%PATH%;%JAVA_HOME%\bin"
 shutdown.bat
