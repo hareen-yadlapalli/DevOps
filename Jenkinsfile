@@ -34,7 +34,7 @@ pipeline {
     }
     stage('Execute Scripts') {
       steps {
-        bat 'ExecuteScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}"'
+        bat 'ExecuteImplScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}" DBServerName="${params.DBServerName}"'
       }
     }
     stage('Deploy app to tomcat') {
