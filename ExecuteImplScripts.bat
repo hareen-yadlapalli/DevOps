@@ -8,7 +8,7 @@
 	set %3
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
-	REM echo %DBServer%
+	REM echo %DBServerName%
 	
    REM set rbpy=%9
 	set fileName=
@@ -43,9 +43,9 @@
 	)
 
 	echo Result >> ImplQueryResults!argCount!.log
-	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServer% -i %%~nxG
+	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG
 	echo Executing the script file %%~nxG
-	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServer% -i %%~nxG >> ImplQueryResults!argCount!.log
+	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG >> ImplQueryResults!argCount!.log
 
 	FOR /F "tokens=* delims=" %%x in (ImplQueryResults!argCount!.log) DO echo %%x
 	) 
@@ -66,6 +66,6 @@
 	IF "!errorsFound!" EQU "true" (
     echo Errors are found in the SQLs, will run the rollback scripts
 	cd !origfileLocation!
-	ExecuteRBScripts.bat "DBUserName=%DBUserName%" "DBUserPwd=%DBUserPwd%" "DBName=%DBServer%"
+	ExecuteRBScripts.bat "DBUserName=%DBUserName%" "DBUserPwd=%DBUserPwd%" "DBName=%DBServerName%"
     )
     

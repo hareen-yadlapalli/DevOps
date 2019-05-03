@@ -8,7 +8,7 @@
 	set %3
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
-	REM echo %DBServer%
+	REM echo %DBServerName%
 	
    REM set rbpy=%9
 	set fileName=
@@ -42,9 +42,9 @@
 	)
 
 	echo Result >> RBQueryResults!argCount!.log
-	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServer% -i %%~nxG
+	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG
 	echo Executing the script file %%~nxG
-	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServer% -i %%~nxG >> RBQueryResults!argCount!.log
+	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG >> RBQueryResults!argCount!.log
 
 	FOR /F "tokens=* delims=" %%x in (RBQueryResults!argCount!.log) DO echo %%x
 	) 
