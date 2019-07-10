@@ -1,2 +1,13 @@
-cd "C:\Users\Sowmya\Desktop\Hareen\DevOps\apache-tomcat-9.0.17-windows-x64\bin"
+@echo off
+setlocal enabledelayedexpansion
+set %1
+REM echo serverHomePath=%serverHomePath%
+echo starting the server, server path is %serverHomePath%
+cd %serverHomePath%\bin
 startup.bat
+
+
+
+
+
+
