@@ -39,19 +39,26 @@ pipeline {
         bat 'ExecuteImplScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}" DBServerName="${params.DBServerName}"'
       }
     }
+    stage('Backup app from tomcat') {
+      steps {
+        //bat 'DeployApp.bat'
+        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=backupApp"
+      }
+    }
     stage('Deploy app to tomcat') {
       steps {
-        bat 'DeployApp.bat'
+        //bat 'DeployApp.bat'
+        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=deployApp"
       }
     }
     stage('Stop Server') {
       steps {
-        bat 'stopServer.bat'
+        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=stopServer"
       }
     }
     stage('Start Server') {
       steps {
-        bat 'startServer.bat'
+        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=startServer"
       }
     }
   }
