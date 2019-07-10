@@ -62,8 +62,7 @@ pipeline {
     choice(name: 'targetEnv', choices: '''DEV
 SYS
 UAT
-PERF
-PROD''', description: 'Target Environment')
+PRD''', description: 'Target Environment')
     string(name: 'DBServerName', defaultValue: 'localhost', description: 'Database Server Name Eg mydesktop')
     string(name: 'DBUserName', defaultValue: 'demouser', description: 'Database User Name Eg demouser')
     string(name: 'DBUserPwd', defaultValue: 'demopwd', description: 'Database User Password Eg demopwd')
