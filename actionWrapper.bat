@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 set %1
 set %2
 echo targetEnv=%targetEnv%
-action1=%action%
+echo action=%action%
 
 REM call this file as restartServer.bat "targetEnv=DEV" "action=stopServer"
 REM call this file as restartServer.bat "targetEnv=DEV" "action=startServer"
