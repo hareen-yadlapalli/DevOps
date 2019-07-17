@@ -3,8 +3,8 @@
 setlocal enabledelayedexpansion
 set %1
 set %2
-REM echo targetEnv=%targetEnv%
-REM echo action=%action%
+echo targetEnv=%targetEnv%
+echo action=%action%
 REM call this file as restartServer.bat "targetEnv=DEV" "action=stopServer"
 REM call this file as restartServer.bat "targetEnv=DEV" "action=startServer"
 for /f "tokens=1,* delims==" %%i in (config.properties) do (
