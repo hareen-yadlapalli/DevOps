@@ -17,12 +17,9 @@ pipeline {
           println "Rollback Scripts Location: ${params.RBScriptsLoc}"
           println "Rollback Scripts: ${params.RBScripts}"
           */
-          targetEnvironment="${params.targetEnv}"
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
-          print "${targetEnvironment}"
         }
-
       }
     }
     stage('Checkout from git') {
