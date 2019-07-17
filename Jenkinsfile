@@ -44,18 +44,18 @@ pipeline {
     stage('Backup app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "targetEnv=${targetEnvironment}" "action=backupApp"'
+        bat 'actionWrapper.bat "targetEnv="${targetEnvironment}"" "action=backupApp"'
       }
     }
     stage('Deploy app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "targetEnv=${targetEnvironment}" "action=deployApp"'
+        bat 'actionWrapper.bat "targetEnv="${targetEnvironment}"" "action=deployApp"'
       }
     }
     stage('Stop Server') {
       steps {
-        bat 'actionWrapper.bat "targetEnv${targetEnvironment}" "action=stopServer"'
+        bat 'actionWrapper.bat "targetEnv="${targetEnvironment}"" "action=stopServer"'
       }
     }
     stage('Start Server') {
