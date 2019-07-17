@@ -1,13 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 set %1
-REM echo serverURL=%serverURL% %1
-pwd
+REM echo serverHomePath=%serverHomePath%
+cd %serverHomePath%/webapps
+echo "These files will be backed up..."
 dir
-cd BuildDir\BuildFiles
-pwd
-dir
-curl\bin\curl -u mgrscript:mgrscript -X PUT -F "file=SampleWebApp.war" %serverURL%/manager/text/deploy?path=/SampleWebApp
+REM curl\bin\curl -u mgrscript:mgrscript -X PUT -F "file=SampleWebApp.war" %serverURL%/manager/text/deploy?path=/SampleWebApp
 
 
 
