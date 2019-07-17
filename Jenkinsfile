@@ -17,8 +17,10 @@ pipeline {
           println "Rollback Scripts Location: ${params.RBScriptsLoc}"
           println "Rollback Scripts: ${params.RBScripts}"
           */
+          targetEnvironment="${params.targetEnv}"
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
+          print "${targetEnvironment}"
         }
 
       }
@@ -42,23 +44,23 @@ pipeline {
     stage('Backup app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "targetEnv=${params.targetEnv}" "action=backupApp"'
+        bat 'actionWrapper.bat "targetEnv=${targetEnvironment}" "action=backupApp"'
       }
     }
     stage('Deploy app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "targetEnv=${params.targetEnv}" "action=deployApp"'
+        bat 'actionWrapper.bat "targetEnv=${targetEnvironment}" "action=deployApp"'
       }
     }
     stage('Stop Server') {
       steps {
-        bat 'actionWrapper.bat "targetEnv=${params.targetEnv}" "action=stopServer"'
+        bat 'actionWrapper.bat "targetEnv${targetEnvironment}" "action=stopServer"'
       }
     }
     stage('Start Server') {
       steps {
-        bat 'actionWrapper.bat "targetEnv=${params.targetEnv}" "action=startServer"'
+        bat 'actionWrapper.bat "targetEnv=${targetEnvironment}" "action=startServer"'
       }
     }
   }
