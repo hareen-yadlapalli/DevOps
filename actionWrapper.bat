@@ -3,8 +3,7 @@
 setlocal enabledelayedexpansion
 set %1
 set %2
-REM echo targetEnv=%targetEnv%
-REM echo action=%action%
+
 
 REM call this file as restartServer.bat "targetEnv=DEV" "action=stopServer"
 REM call this file as restartServer.bat "targetEnv=DEV" "action=startServer"
@@ -17,29 +16,29 @@ for /f "tokens=1,* delims==" %%i in (config.properties) do (
 	REM echo !targetEnv!.serverHomePath
 	
 	if "!action!"=="backupApp" (
-		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,13!
-		if "!property:~0,13!"=="!targetEnv!.serverHomePath" (
+		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,14!
+		if "!property:~0,14!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
 			CALL backupApp.bat "serverURL=!value!"		
 		)
 	)
 	if "!action!"=="deployApp" (
-		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,7!
-		if "!property:~0,7!"=="!targetEnv!.url" (
+		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,8!
+		if "!property:~0,8!"=="!targetEnv!.url" (
 			REM echo !property! = !value!
 			CALL deployApp.bat "serverURL=!value!"		
 		)
 	)
 	if "!action!"=="stopServer" (
-		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,18!
-		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
+		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,19!
+		if "!property:~0,19!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
 			CALL stopServer.bat "serverHomePath=!value!"		
 		)
 	)
 	if "!action!"=="startServer" (
-		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,18!
-		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
+		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,19!
+		if "!property:~0,19!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
 			CALL startServer.bat "serverHomePath=!value!"		
 		)
