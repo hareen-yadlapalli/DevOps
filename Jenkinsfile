@@ -42,23 +42,23 @@ pipeline {
     stage('Backup app from tomcat') {
       steps {
         //bat 'DeployApp.bat'
-        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=backupApp"
+        bat actionWrapper.bat "targetEnv=${params.targetEnv}" "action=backupApp"
       }
     }
     stage('Deploy app to tomcat') {
       steps {
         //bat 'DeployApp.bat'
-        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=deployApp"
+        bat actionWrapper.bat "targetEnv=${params.targetEnv}" "action=deployApp"
       }
     }
     stage('Stop Server') {
       steps {
-        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=stopServer"
+        bat actionWrapper.bat "targetEnv=${params.targetEnv}" "action=stopServer"
       }
     }
     stage('Start Server') {
       steps {
-        actionWrapper.bat "targetEnv=${params.targetEnv}" "action=startServer"
+        bat actionWrapper.bat "targetEnv=${params.targetEnv}" "action=startServer"
       }
     }
   }
