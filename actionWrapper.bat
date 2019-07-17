@@ -30,14 +30,14 @@ for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		)
 	)
 	if "!action!"=="stopServer" (
-		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,19!
+		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,18!
 		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
 			CALL stopServer.bat "serverHomePath=!value!"		
 		)
 	)
 	if "!action!"=="startServer" (
-		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,19!
+		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,18!
 		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
 			CALL startServer.bat "serverHomePath=!value!"		
