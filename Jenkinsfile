@@ -48,7 +48,7 @@ pipeline {
     stage('Deploy app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat '"action=deployApp" targetEnv="${params.targetEnv}"'
+        bat 'actionWrapper.bat "action=deployApp" targetEnv="${params.targetEnv}"'
       }
     }
     stage('Stop Server') {
