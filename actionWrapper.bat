@@ -19,7 +19,7 @@ for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		echo action is !action!, target environment is !targetEnv!, property value is !property:~0,18!
 		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
-			CALL backupApp.bat "serverURL=!value!"		
+			CALL backupApp.bat "serverHomePath=!value!"		
 		)
 	)
 	if "!action!"=="deployApp" (
