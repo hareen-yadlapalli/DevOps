@@ -22,10 +22,15 @@ for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		)
 	)
 	if "!action!"=="deployApp" (
-		if "!property:~0,7!"=="!targetEnv!.url" (
+		if "!property:~0,18!"=="!targetEnv!.url" (
 			REM echo !property! = !value!
-			CALL deployApp.bat "serverURL=!value!"		
+			CALL deployApp.bat "serverHomePath=!value!"		
 		)
+		REM
+		REM if "!property:~0,7!"=="!targetEnv!.url" (
+		REM	REM echo !property! = !value!
+		REM	CALL deployApp.bat "serverURL=!value!"		
+		REM)
 	)
 	if "!action!"=="stopServer" (
 		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
