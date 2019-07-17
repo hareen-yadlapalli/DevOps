@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 set %1
-echo serverURL=%serverURL% %1
+REM echo serverURL=%serverURL% %1
 pwd
 dir
 cd BuildDir/BuildFiles
