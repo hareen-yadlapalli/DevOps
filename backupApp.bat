@@ -5,6 +5,8 @@ set %2
 REM parameters buildName and serverHomePath
 
 echo Taking full backup of all apps, apps list below...
+cd %serverHomePath%\webapps
+dir
 for /f "delims=" %%a in ('wmic OS get localdatetime  ^| find "."') do set datetime=%%a
 set "YYYY=%datetime:~0,4%"
 set "MM=%datetime:~4,2%"
