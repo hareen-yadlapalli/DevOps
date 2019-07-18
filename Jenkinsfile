@@ -19,8 +19,8 @@ pipeline {
           */
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
-          buildName="${params.BuildNum}"
-          println "${buildName}"
+         // buildName="${params.BuildNum}"
+         // println "${buildName}"
         }
       }
     }
