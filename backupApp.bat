@@ -22,14 +22,19 @@ set "backupRepoDirFP=%cd%\!backupRepoDir!"
 set "appsRepoDirFP=!serverHomePath!\webapps"
 
 
+cd !appsRepoDirFP!
+set appsRepoDirFP=%cd%
 
 echo !backupRepoDirFP!
 echo !appsRepoDirFP!
 
-echo Taking full backup of all apps, apps list below...
+
 cd !appsRepoDirFP!
+set appsRepoDirFP=%cd%
+
+echo Taking full backup of all apps, apps list below...
 echo apps directory is !appsRepoDirFP!
-echo current directory is %cd%
+
 dir
 
 xcopy !appsRepoDirFP! !backupRepoDirFP! /E
