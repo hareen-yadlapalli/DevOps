@@ -19,6 +19,7 @@ pipeline {
           */
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
+          buildName="${params.BuildNum}"
         }
       }
     }
@@ -33,17 +34,19 @@ pipeline {
                                 userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
+    /*
     stage('Execute Scripts') {
       steps {
         bat 'ExecuteImplScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}" DBServerName="${params.DBServerName}"'
       }
     }
+    */
     stage('Backup app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "action=backupApp" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
+        bat 'actionWrapper.bat "action=backupApp" targetEnv="${params.targetEnv}_${params.BuildNum}" buildName="${buildName}"'
       }
-    }
+    }/*
     stage('Deploy app') {
       steps {
         //bat 'DeployApp.bat'
@@ -60,6 +63,7 @@ pipeline {
         bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
       }
     }
+    */
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
