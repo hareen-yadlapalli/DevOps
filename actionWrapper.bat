@@ -6,7 +6,7 @@ set %2
 set %3
 echo action=!action!
 echo targetEnv=!targetEnv!
-echo buildName=!buildName!
+echo buildName=!BuildNum!
 
 REM call this file as restartServer.bat "targetEnv=DEV" "action=stopServer"
 REM call this file as restartServer.bat "targetEnv=DEV" "action=startServer"
