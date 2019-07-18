@@ -20,6 +20,7 @@ pipeline {
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
           buildName="${params.BuildNum}"
+          println "${buildName}"
         }
       }
     }
@@ -44,7 +45,7 @@ pipeline {
     stage('Backup app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "action=backupApp" targetEnv="${params.targetEnv}_${params.BuildNum}" buildName="${buildName}"'
+        bat 'actionWrapper.bat "action=backupApp" buildName="${buildName}" targetEnv="${params.targetEnv}_${params.BuildNum}"'
       }
     }/*
     stage('Deploy app') {
