@@ -21,7 +21,7 @@ for /f "tokens=1,* delims==" %%i in (config.properties) do (
 	if "!action!"=="backupApp" (
 		if "!property:~0,18!"=="!targetEnv!.serverHomePath" (
 			REM echo !property! = !value!
-			CALL backupApp.bat "serverHomePath=!value!"		
+			CALL backupApp.bat "serverHomePath=!value!" "buildName=!buildName!"		
 		)
 	)
 	if "!action!"=="deployApp" (
