@@ -19,15 +19,15 @@ set "backupRepoDir=!buildName!_!fullstamp!"
 echo !backupRepoDir!
 mkdir !backupRepoDir!
 set "backupRepoDirFP=%cd%\!backupRepoDir!"
-set "buildRepoDirFP=%serverHomePath%\webapps"
+set "appsRepoDirFP=!serverHomePath!\webapps"
 
 echo Taking full backup of all apps, apps list below...
 cd %serverHomePath%\webapps
 dir
 
 echo !backupRepoDirFP!
-echo !buildRepoDirFP!
-xcopy !buildRepoDirFP! !backupRepoDirFP! /E
+echo !appsRepoDirFP!
+xcopy !appsRepoDirFP! !backupRepoDirFP! /E
 cd !backupRepoDirFP!
 REM echo "# test" >> README.md
 git init
