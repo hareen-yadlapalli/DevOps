@@ -21,12 +21,15 @@ mkdir !backupRepoDir!
 set "backupRepoDirFP=%cd%\!backupRepoDir!"
 set "appsRepoDirFP=!serverHomePath!\webapps"
 
-echo Taking full backup of all apps, apps list below...
-cd %serverHomePath%\webapps
-dir
+
 
 echo !backupRepoDirFP!
 echo !appsRepoDirFP!
+
+echo Taking full backup of all apps, apps list below...
+cd !appsRepoDirFP!
+dir
+
 xcopy !appsRepoDirFP! !backupRepoDirFP! /E
 cd !backupRepoDirFP!
 REM echo "# test" >> README.md
