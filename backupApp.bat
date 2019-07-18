@@ -20,10 +20,15 @@ echo !backupRepoDir!
 mkdir !backupRepoDir!
 set "backupRepoDirFP=%cd%\!backupRepoDir!"
 set "buildRepoDirFP=%serverHomePath%\webapps"
+
+echo Taking full backup of all apps, apps list below...
+cd %serverHomePath%\webapps
+dir
+
 echo !backupRepoDirFP!
 echo !buildRepoDirFP!
 xcopy !buildRepoDirFP! !backupRepoDirFP! /E
-cd !backupRepoDir!
+cd !backupRepoDirFP!
 REM echo "# test" >> README.md
 git init
 git add --all
