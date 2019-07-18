@@ -45,7 +45,7 @@ pipeline {
     stage('Backup app') {
       steps {
         //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "action=backupApp" buildName="${buildName}" targetEnv="${params.targetEnv}_${params.BuildNum}"'
+        bat 'actionWrapper.bat "action=backupApp" buildName="${params.BuildNum}" targetEnv="${params.targetEnv}"'
       }
     }/*
     stage('Deploy app') {
