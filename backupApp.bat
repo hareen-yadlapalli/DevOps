@@ -31,7 +31,7 @@ echo !appsRepoDirFP!
 echo Taking full backup of all apps from the directory !appsRepoDirFP!, apps list below...
 dir
 
-xcopy !appsRepoDirFP! !backupRepoDirFP! /E
+xcopy "!appsRepoDirFP!" "!backupRepoDirFP!" /E
 cd !backupRepoDirFP!
 REM echo "# test" >> README.md
 git init
