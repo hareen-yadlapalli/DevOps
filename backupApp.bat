@@ -28,13 +28,7 @@ set appsRepoDirFP=%cd%
 echo !backupRepoDirFP!
 echo !appsRepoDirFP!
 
-
-cd !appsRepoDirFP!
-set appsRepoDirFP=%cd%
-
-echo Taking full backup of all apps, apps list below...
-echo apps directory is !appsRepoDirFP!
-
+echo Taking full backup of all apps from the directory !appsRepoDirFP!, apps list below...
 dir
 
 xcopy !appsRepoDirFP! !backupRepoDirFP! /E
