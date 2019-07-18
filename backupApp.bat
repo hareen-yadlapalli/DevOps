@@ -28,6 +28,8 @@ echo !appsRepoDirFP!
 
 echo Taking full backup of all apps, apps list below...
 cd !appsRepoDirFP!
+echo apps directory is !appsRepoDirFP!
+echo current directory is %cd%
 dir
 
 xcopy !appsRepoDirFP! !backupRepoDirFP! /E
