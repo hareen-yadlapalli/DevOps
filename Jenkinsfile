@@ -59,12 +59,13 @@ pipeline {
         bat 'actionWrapper.bat "action=stopServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
       }
     }
+    */
     stage('Start Server') {
       steps {
         bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
       }
     }
-    */
+    
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
