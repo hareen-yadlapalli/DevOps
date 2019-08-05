@@ -42,6 +42,7 @@ pipeline {
       }
     }
     */
+    /*
     stage('Backup app') {
       steps {
         //bat 'DeployApp.bat'
