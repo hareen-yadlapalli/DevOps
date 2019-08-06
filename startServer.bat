@@ -7,7 +7,7 @@ set %4
 set %5
 set %6
 net use s: %serverName% /u:%serverUserName% %serverPassword%
-sc \\%serverName% stop %serviceName%
+sc \\%serverName% start %serviceName%
 net use s: /delete
 
 
