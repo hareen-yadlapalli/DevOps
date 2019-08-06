@@ -41,3 +41,16 @@ if "!action!"=="stopServer" (
 		)
 	)	
 )
+
+if "!action!"=="deployApp" (
+	for /f "tokens=1,* delims==" %%i in (config.properties) do (
+		set property=%%i
+		set value=%%j
+		if "!property:~0,13!"=="!targetEnv!.serverURL" (
+			set serverURL=!property!
+		)
+		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
+			CALL deployApp.bat "serverURL=!serverURL!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
+		)
+	)	
+)
