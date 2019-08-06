@@ -21,55 +21,31 @@ pipeline {
           */
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
-         // buildName="${params.BuildNum}"
-         // println "${buildName}"
         }
+
       }
     }
     stage('Checkout from git') {
       steps {
         checkout([$class: 'GitSCM', 
-                                branches: [[name: '*/master']], 
-                                doGenerateSubmoduleConfigurations: false, 
-                                extensions: [[$class: 'RelativeTargetDirectory', 
-                                    relativeTargetDir: 'BuildDir']], 
-                                submoduleCfg: [], 
-                                userRemoteConfigs: [[url: "${buildURL}"]]])
+                                        branches: [[name: '*/master']], 
+                                        doGenerateSubmoduleConfigurations: false, 
+                                        extensions: [[$class: 'RelativeTargetDirectory', 
+                                            relativeTargetDir: 'BuildDir']], 
+                                        submoduleCfg: [], 
+                                        userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
-    /*
-    stage('Execute Scripts') {
-      steps {
-        bat 'ExecuteImplScripts.bat DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}" DBServerName="${params.DBServerName}"'
-      }
-    }
-    */
-    /*
-    stage('Backup app') {
-      steps {
-        //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "action=backupApp" BuildNum="${params.BuildNum}" targetEnv="${params.targetEnv}"'
-      }
-    }/*
-    stage('Deploy app') {
-      steps {
-        //bat 'DeployApp.bat'
-        bat 'actionWrapper.bat "action=deployApp" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
-      }
-    }
-    */
     stage('Stop Server') {
       steps {
         bat 'actionWrapper.bat "action=stopServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}"'
       }
     }
-    
     stage('Start Server') {
       steps {
         bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}"'
       }
     }
-    
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
