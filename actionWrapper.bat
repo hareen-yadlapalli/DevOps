@@ -20,11 +20,13 @@ if "!action!"=="startServer" (
 		if "!property:~0,15!"=="!targetEnv!.serviceName" (
 			set serviceName=!property!
 		)
-	)
-	CALL startServer.bat "targetEnv=!targetEnv!" "buildName=!BuildNum!" "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"		
+		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
+			CALL startServer.bat "targetEnv=!targetEnv!" "buildName=!BuildNum!" "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
+		)
+	)	
 )
 
-if "!action!"=="stopServer" (
+if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
@@ -34,6 +36,8 @@ if "!action!"=="stopServer" (
 		if "!property:~0,15!"=="!targetEnv!.serviceName" (
 			set serviceName=!property!
 		)
-	)
-	CALL stopServer.bat "targetEnv=!targetEnv!" "buildName=!BuildNum!" "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"		
+		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
+			CALL stopServer.bat "targetEnv=!targetEnv!" "buildName=!BuildNum!" "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
+		)
+	)	
 )
