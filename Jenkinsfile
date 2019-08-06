@@ -11,6 +11,8 @@ pipeline {
           println "Database Server Name: ${params.DBServerName}"
           println "Database User Name: ${params.DBUserName}"
           println "Database Password: ${params.DBUserPwd}"
+          println "Server User Name: ${params.ServerUserName}"
+          println "Server Password: ${params.ServerUserPwd}"
           /*
           println "Implementation Scripts Location: ${params.ImplScriptsLoc}"
           println "Implementation Scripts: ${params.ImplScripts}"
@@ -63,7 +65,7 @@ pipeline {
     */
     stage('Start Server') {
       steps {
-        bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
+        bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}"'
       }
     }
     
@@ -79,5 +81,7 @@ PRD''', description: 'Target Environment')
     string(name: 'DBServerName', defaultValue: 'localhost', description: 'Database Server Name Eg mydesktop')
     string(name: 'DBUserName', defaultValue: 'demouser', description: 'Database User Name Eg demouser')
     string(name: 'DBUserPwd', defaultValue: 'demopwd', description: 'Database User Password Eg demopwd')
+    string(name: 'ServerUserName', defaultValue: 'serveruser', description: 'Server User Name Eg serveruser')
+    string(name: 'ServerUserPwd', defaultValue: 'serverpwd', description: 'Server User Password Eg serverpwd')
   }
 }
