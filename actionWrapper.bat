@@ -26,7 +26,7 @@ if "!action!"=="startServer" (
 	)	
 )
 
-if "!action!"=="startServer" (
+if "!action!"=="stopServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
