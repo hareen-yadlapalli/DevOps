@@ -14,6 +14,7 @@ if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
+		echo In startServer !property!=!value!
 		if "!property:~0,14!"=="!targetEnv!.serverName" (
 			set serverName=!property!
 		)
