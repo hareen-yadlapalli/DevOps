@@ -6,6 +6,7 @@ set %3
 set %4
 set %5
 set %6
+echo in stopServer.bat file
 echo serverName=%serverName%
 echo serverUserName=%serverUserName%
 echo serverPassword=%serverPassword%
