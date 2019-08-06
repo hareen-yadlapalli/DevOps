@@ -57,12 +57,13 @@ pipeline {
         bat 'actionWrapper.bat "action=deployApp" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
       }
     }
+    */
     stage('Stop Server') {
       steps {
-        bat 'actionWrapper.bat "action=stopServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}"'
+        bat 'actionWrapper.bat "action=stopServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}"'
       }
     }
-    */
+    
     stage('Start Server') {
       steps {
         bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}"'
