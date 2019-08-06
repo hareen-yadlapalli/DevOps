@@ -6,9 +6,15 @@ set %3
 set %4
 set %5
 set %6
-net use s: %serverName% /u:%serverUserName% %serverPassword%
-sc \\%serverName% start %serviceName%
-net use s: /delete
+
+echo serverName=%serverName%
+echo serverUserName=%serverUserName%
+echo serverPassword=%serverPassword%
+echo serviceName=%serviceName%
+
+REM net use s: %serverName% /u:%serverUserName% %serverPassword%
+REM sc \\%serverName% start %serviceName%
+REM net use s: /delete
 
 
 
