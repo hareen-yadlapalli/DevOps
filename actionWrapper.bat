@@ -14,7 +14,7 @@ if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
-		if "!property:~0,7!"=="!targetEnv!.serverName" (
+		if "!property:~0,14!"=="!targetEnv!.serverName" (
 			set serverName=!property!
 		)
 		if "!property:~0,15!"=="!targetEnv!.serviceName" (
@@ -30,7 +30,7 @@ if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
-		if "!property:~0,7!"=="!targetEnv!.serverName" (
+		if "!property:~0,14!"=="!targetEnv!.serverName" (
 			set serverName=!property!
 		)
 		if "!property:~0,15!"=="!targetEnv!.serviceName" (
