@@ -13,6 +13,8 @@ pipeline {
           println "Database Password: ${params.DBUserPwd}"
           println "Server User Name: ${params.ServerUserName}"
           println "Server Password: ${params.ServerUserPwd}"
+          println "App Server User Name: ${params.AppServerUserName}"
+          println "App Server Password: ${params.AppServerUserPwd}"
           /*
           println "Implementation Scripts Location: ${params.ImplScriptsLoc}"
           println "Implementation Scripts: ${params.ImplScripts}"
@@ -46,6 +48,11 @@ pipeline {
         bat 'actionWrapper.bat "action=startServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}"'
       }
     }
+    stage('Deploy App') {
+      steps {
+        bat 'actionWrapper.bat "action=deployApp" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.AppServerUserName}" serverPassword="${params.AppServerUserPwd}"'
+      }
+    }
   }
   parameters {
     string(name: 'gitURL', defaultValue: 'gitURL', description: 'git Repo URL')
@@ -60,5 +67,7 @@ PRD''', description: 'Target Environment')
     string(name: 'DBUserPwd', defaultValue: 'demopwd', description: 'Database User Password Eg demopwd')
     string(name: 'ServerUserName', defaultValue: 'serveruser', description: 'Server User Name Eg serveruser')
     string(name: 'ServerUserPwd', defaultValue: 'serverpwd', description: 'Server User Password Eg serverpwd')
+    string(name: 'AppServerUserName', defaultValue: 'appServeruser', description: 'App Server User Name Eg appserveruser')
+    string(name: 'AppServerUserPwd', defaultValue: 'appServerpwd', description: 'App Server User Password Eg appserverpwd')
   }
 }
