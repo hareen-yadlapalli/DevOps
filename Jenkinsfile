@@ -30,12 +30,12 @@ pipeline {
     stage('Checkout from git') {
       steps {
         checkout([$class: 'GitSCM', 
-                                                        branches: [[name: '*/master']], 
-                                                        doGenerateSubmoduleConfigurations: false, 
-                                                        extensions: [[$class: 'RelativeTargetDirectory', 
-                                                            relativeTargetDir: 'BuildDir']], 
-                                                        submoduleCfg: [], 
-                                                        userRemoteConfigs: [[url: "${buildURL}"]]])
+                                                                branches: [[name: '*/master']], 
+                                                                doGenerateSubmoduleConfigurations: false, 
+                                                                extensions: [[$class: 'RelativeTargetDirectory', 
+                                                                    relativeTargetDir: 'BuildDir']], 
+                                                                submoduleCfg: [], 
+                                                                userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
     stage('Stop Server') {
