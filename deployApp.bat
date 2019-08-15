@@ -10,7 +10,8 @@ REM echo serverURL=%serverURL% %1
 cd BuildDir/BuildFiles
 echo "These files will be deployed..."
 dir
-for /f "tokens=*" %%G in ('dir /b /s /a:d "*.war"') do echo Found %%G
+FOR %%i IN (*.*) DO echo %%i
+REM for /f "tokens=*" %%G in ('dir /b /s /a:d "*.war"') do echo Found %%G
 REM curl\bin\curl -u mgrscript:mgrscript -X PUT -F "file=SampleWebApp.war" %serverURL%/manager/text/deploy?path=/SampleWebApp
 
 
