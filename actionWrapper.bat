@@ -43,7 +43,7 @@ if "!action!"=="stopServer" (
 )
 
 if "!action!"=="deployApp" (
-	echo in action wrapper batch filee
+	echo in action wrapper batch file
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
