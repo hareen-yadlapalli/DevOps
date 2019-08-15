@@ -15,10 +15,10 @@ if "!action!"=="startServer" (
 		set property=%%i 
 		set value=%%j
 		if "!property:~0,14!"=="!targetEnv!.serverName" (
-			set serverName=!property!
+			set serverName=!value!
 		)
 		if "!property:~0,15!"=="!targetEnv!.serviceName" (
-			set serviceName=!property!
+			set serviceName=!value!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
 			CALL startServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
@@ -31,10 +31,10 @@ if "!action!"=="stopServer" (
 		set property=%%i
 		set value=%%j
 		if "!property:~0,14!"=="!targetEnv!.serverName" (
-			set serverName=!property!
+			set serverName=!value!
 		)
 		if "!property:~0,15!"=="!targetEnv!.serviceName" (
-			set serviceName=!property!
+			set serviceName=!value!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
 			CALL stopServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
@@ -47,7 +47,7 @@ if "!action!"=="deployApp" (
 		set property=%%i
 		set value=%%j
 		if "!property:~0,13!"=="!targetEnv!.serverURL" (
-			set serverURL=!property!
+			set serverURL=!value!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
 			CALL deployApp.bat "serverURL=!serverURL!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
