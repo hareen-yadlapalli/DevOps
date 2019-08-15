@@ -13,6 +13,7 @@ dir
 FOR %%i IN (*.war) DO (
   set fileName=%%i
   echo !fileName!
+  curl\bin\curl -u mgrscript:mgrscript -X PUT -F "file=!fileName!" %serverURL%/manager/text/deploy?path=/SampleWebApp
   )
 REM for /f "tokens=*" %%G in ('dir /b /s /a:d "*.war"') do echo Found %%G
 REM curl\bin\curl -u mgrscript:mgrscript -X PUT -F "file=SampleWebApp.war" %serverURL%/manager/text/deploy?path=/SampleWebApp
