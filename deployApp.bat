@@ -13,6 +13,8 @@ dir
 FOR %%i IN (*.war) DO (
   set fileName=%%i
   echo !fileName!
+  set fileNameWOExt=%%~ni
+  echo %%~ni
   ..\..\curl\bin\curl -u mgrscript:mgrscript -X PUT -F "file=!fileName!" %serverURL%/manager/text/deploy?path=/SampleWebApp
   )
 REM for /f "tokens=*" %%G in ('dir /b /s /a:d "*.war"') do echo Found %%G
