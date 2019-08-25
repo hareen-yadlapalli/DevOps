@@ -9,7 +9,7 @@ echo action=!action!
 echo targetEnv=!targetEnv!
 echo buildName=!BuildNum!
 echo appServerUserName=!appServerUserName!
-echo appServerPassword=!appServerPassword!
+echo appServerPwd=!appServerPwd!
 if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i 
@@ -51,7 +51,7 @@ if "!action!"=="deployApp" (
 			set serverURL=!value!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
-			CALL deployApp.bat "serverURL=!serverURL!" "appServerUserName=!appServerUserName!" "appServerPassword=!appServerPassword!"
+			CALL deployApp.bat "serverURL=!serverURL!" "appServerUserName=!appServerUserName!" "appServerPwd=!appServerPwd!"
 		)
 	)	
 )
