@@ -8,8 +8,8 @@ set %5
 echo action=!action!
 echo targetEnv=!targetEnv!
 echo buildName=!BuildNum!
-echo serverUserName=!serverUserName!
-echo serverPassword=!serverPassword!
+echo appServerUserName=!appServerUserName!
+echo appServerPassword=!appServerPassword!
 if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i 
