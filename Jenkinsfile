@@ -50,7 +50,7 @@ pipeline {
     }
     stage('Deploy App') {
       steps {
-        bat 'actionWrapper.bat "action=deployApp" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" appServerUserName="${params.AppServerUserName}" appServerPassword="${params.AppServerUserPwd}"'
+        bat 'actionWrapper.bat "action=deployApp" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" appServerUserName="${params.AppServerUserName}" appServerPwd="${params.AppServerUserPwd}"'
       }
     }
   }
