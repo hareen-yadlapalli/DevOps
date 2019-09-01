@@ -38,6 +38,11 @@ pipeline {
                                                                                         userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
+    stage('Execute Scripts') {
+      steps {
+        bat 'actionWrapper.bat "action=executeScripts" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.DBUserName}" serverPassword="${params.DBUserPwd}"'
+      }
+    }
     stage('Stop Server') {
       steps {
         bat 'actionWrapper.bat "action=stopServer" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" serverUserName="${params.ServerUserName}" serverPassword="${params.ServerUserPwd}" canRestartServer="${params.CanRestartServer}"'
