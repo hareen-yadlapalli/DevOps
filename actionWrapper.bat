@@ -54,4 +54,4 @@ if "!action!"=="deployApp" (
 			CALL deployApp.bat "serverURL=!serverURL!" "appServerUserName=!appServerUserName!" "appServerUserPwd=!appServerUserPwd!"
 		)
 	)	
-)
+) 
