@@ -6,12 +6,12 @@ set %3
 set %4
 set %5
 set %6
-echo in startServer.bat file
-echo serverName=%serverName%
-echo serverUserName=%serverUserName%
-echo serverPassword=%serverPassword%
-echo serviceName=%serviceName%
-echo canRestartServer=%canRestartServer%
+REM echo in startServer.bat file
+REM echo serverName=%serverName%
+REM echo serverUserName=%serverUserName%
+REM echo serverPassword=%serverPassword%
+REM echo serviceName=%serviceName%
+REM echo canRestartServer=%canRestartServer%
 if %canRestartServer%==true (
 echo "starting server..."
 REM net use s: %serverName% /u:%serverUserName% %serverPassword%
