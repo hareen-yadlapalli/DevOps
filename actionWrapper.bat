@@ -5,11 +5,11 @@ set %2
 set %3
 set %4
 set %5
-echo action=!action!
-echo targetEnv=!targetEnv!
-echo buildName=!BuildNum!
-echo appServerUserName=!appServerUserName!
-echo appServerUserPwd=!appServerUserPwd!
+REM echo action=!action!
+REM echo targetEnv=!targetEnv!
+REM echo buildName=!BuildNum!
+REM echo appServerUserName=!appServerUserName!
+REM echo appServerUserPwd=!appServerUserPwd!
 if "!action!"=="startServer" (
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i 
@@ -43,7 +43,7 @@ if "!action!"=="stopServer" (
 )
 
 if "!action!"=="deployApp" (
-	echo in action wrapper batch file
+	REM echo in action wrapper batch file
 	for /f "tokens=1,* delims==" %%i in (config.properties) do (
 		set property=%%i
 		set value=%%j
