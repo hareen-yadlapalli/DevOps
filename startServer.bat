@@ -16,6 +16,7 @@ if %canRestartServer%==true (
 echo "starting server..."
 net use s: %serverName% /u:%serverUserName% %serverPassword%
 sc \\%serverName% start %serviceName%
+net use s: /delete
 )
 if %canRestartServer%==false (
 echo "Server restart not requested..."
