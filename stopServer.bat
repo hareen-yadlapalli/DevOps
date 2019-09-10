@@ -15,8 +15,8 @@ REM echo serviceName=%serviceName%
 REM echo canRestartServer=%canRestartServer%
 if %canRestartServer%==true (
 echo "stopping server..."
-REM net use s: %serverName% /u:%serverUserName% %serverPassword%
-REM sc \\%serverName% stop %serviceName%
+net use s: %serverName% /u:%serverUserName% %serverPassword%
+sc \\%serverName% stop %serviceName%
 )
 if %canRestartServer%==false (
 echo "Server restart not requested..."
