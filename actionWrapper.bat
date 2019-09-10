@@ -52,6 +52,7 @@ if "!action!"=="deployApp" (
 			echo serverURL=!serverURL!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
+			echo serverURL1=!serverURL!
 			CALL deployApp.bat "serverURL=!serverURL!" "appServerUserName=!appServerUserName!" "appServerUserPwd=!appServerUserPwd!"
 		)
 	)	
