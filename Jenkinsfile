@@ -4,6 +4,7 @@ pipeline {
     stage('Print pipeline parameters') {
       steps {
         script {
+          /*
           println "gitURL: ${params.gitURL}"
           println "Build Number: ${params.BuildNum}"
           println "Is Restart Required: ${params.CanRestartServer}"
@@ -15,7 +16,7 @@ pipeline {
           println "Server Password: ${params.ServerUserPwd}"
           println "App Server User Name: ${params.AppServerUserName}"
           println "App Server Password: ${params.AppServerUserPwd}"
-          /*
+          
           println "Implementation Scripts Location: ${params.ImplScriptsLoc}"
           println "Implementation Scripts: ${params.ImplScripts}"
           println "Rollback Scripts Location: ${params.RBScriptsLoc}"
