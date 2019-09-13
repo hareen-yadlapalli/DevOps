@@ -21,7 +21,7 @@ if "!action!"=="startServer" (
 			set serviceName=!value!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
-			CALL startServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
+			CALL startServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!ServerUserPwd!"
 		)
 	)	
 )
@@ -37,7 +37,7 @@ if "!action!"=="stopServer" (
 			set serviceName=!value!
 		)
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
-			CALL stopServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!serverPassword!"
+			CALL stopServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!ServerUserPwd!"
 		)
 	)	
 )
