@@ -16,7 +16,20 @@ REM echo canRestartServer=%canRestartServer%
 if %canRestartServer%==true (
 echo "stopping server..."
 net use s: %serverName% /u:%serverUserName% %serverPassword%
-sc \\%serverName% stop %serviceName
+
+set I=0
+set L=-1
+:l
+if "!S:~%I%,1!"=="" goto ld
+if "!S:~%I%,1!"=="\" set L=%I%
+set /a I+=1
+goto l
+:ld
+echo %L%
+%S:~0,17%
+sc %S:~0,17% stop %serviceName%
+
+REM sc \\%serverName% stop %serviceName
 net use s: /delete
 )
 if %canRestartServer%==false (
