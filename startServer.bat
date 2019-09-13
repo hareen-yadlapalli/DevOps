@@ -15,7 +15,20 @@ REM echo canRestartServer=%canRestartServer%
 if %canRestartServer%==true (
 echo "starting server..."
 net use s: %serverName% /u:%serverUserName% %serverPassword%
-sc \\%serverName% start %serviceName%
+
+set I=0
+set L=-1
+:l
+if "!S:~%I%,1!"=="" goto ld
+if "!S:~%I%,1!"=="\" set L=%I%
+set /a I+=1
+goto l
+:ld
+echo %L%
+%S:~0,17%
+sc %S:~0,17% start %serviceName%
+
+REM sc %serverName% start %serviceName%
 net use s: /delete
 )
 if %canRestartServer%==false (
