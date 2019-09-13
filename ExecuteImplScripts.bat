@@ -8,6 +8,7 @@
 	set %3
 	set %4
 	set %5
+	set %6
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
 	REM echo %DBServerName%
