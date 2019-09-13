@@ -20,14 +20,14 @@ net use s: %serverName% /u:%serverUserName% %serverPassword%
 set I=0
 set L=-1
 :l
-if "!S:~%I%,1!"=="" goto ld
-if "!S:~%I%,1!"=="\" set L=%I%
+if "!serverName:~%I%,1!"=="" goto ld
+if "!serverName:~%I%,1!"=="\" set L=%I%
 set /a I+=1
 goto l
 :ld
 echo %L%
-%S:~0,17%
-sc %S:~0,17% stop %serviceName%
+echo %serverName:~0,17%
+sc %serverName:~0,17% stop %serviceName%
 
 REM sc \\%serverName% stop %serviceName
 net use s: /delete
