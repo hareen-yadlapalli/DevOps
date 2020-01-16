@@ -6,8 +6,8 @@ set %3
 set %4
 set %5
 REM echo action=!action!
-REM targetEnv=!targetEnv!
-REM echo buildName=!BuildNum!
+echo targetEnv=!targetEnv!
+echo buildName=!BuildNum!
 REM echo appServerUserName=!appServerUserName!
 REM echo appServerUserPwd=!appServerUserPwd!
 if "!action!"=="startServer" (
