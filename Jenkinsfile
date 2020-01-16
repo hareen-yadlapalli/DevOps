@@ -4,24 +4,6 @@ pipeline {
     stage('Print pipeline parameters') {
       steps {
         script {
-          /*
-          println "gitURL: ${params.gitURL}"
-          println "Build Number: ${params.BuildNum}"
-          println "Is Restart Required: ${params.CanRestartServer}"
-          println "Target Environment: ${params.targetEnv}"
-          println "Database Server Name: ${params.DBServerName}"
-          println "Database User Name: ${params.DBUserName}"
-          println "Database Password: ${params.DBUserPwd}"
-          println "Server User Name: ${params.ServerUserName}"
-          println "Server Password: ${params.ServerUserPwd}"
-          println "App Server User Name: ${params.AppServerUserName}"
-          println "App Server Password: ${params.AppServerUserPwd}"
-          
-          println "Implementation Scripts Location: ${params.ImplScriptsLoc}"
-          println "Implementation Scripts: ${params.ImplScripts}"
-          println "Rollback Scripts Location: ${params.RBScriptsLoc}"
-          println "Rollback Scripts: ${params.RBScripts}"
-          */
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
         }
@@ -31,12 +13,12 @@ pipeline {
     stage('Checkout from git') {
       steps {
         checkout([$class: 'GitSCM', 
-                                                                                        branches: [[name: '*/master']], 
-                                                                                        doGenerateSubmoduleConfigurations: false, 
-                                                                                        extensions: [[$class: 'RelativeTargetDirectory', 
-                                                                                            relativeTargetDir: 'BuildDir']], 
-                                                                                        submoduleCfg: [], 
-                                                                                        userRemoteConfigs: [[url: "${buildURL}"]]])
+                                                                                                branches: [[name: '*/master']], 
+                                                                                                doGenerateSubmoduleConfigurations: false, 
+                                                                                                extensions: [[$class: 'RelativeTargetDirectory', 
+                                                                                                    relativeTargetDir: 'BuildDir']], 
+                                                                                                submoduleCfg: [], 
+                                                                                                userRemoteConfigs: [[url: "${buildURL}"]]])
       }
     }
     stage('Execute Scripts') {
