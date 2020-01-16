@@ -1,13 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
-set %1
-set %2
-set %3
-set %4
-set %5
-REM echo action=!action!
-REM echo targetEnv=!targetEnv!
-REM echo buildName=!BuildNum!
+REM set %1
+REM set %2
+REM set %3
+REM set %4
+REM set %5
+echo action=!action!
+targetEnv=!targetEnv!
+echo buildName=!BuildNum!
 REM echo appServerUserName=!appServerUserName!
 REM echo appServerUserPwd=!appServerUserPwd!
 if "!action!"=="startServer" (
