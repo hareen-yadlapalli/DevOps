@@ -39,7 +39,7 @@ pipeline {
     }
     stage('Execute Scripts') {
       steps {
-        bat 'ExecuteImplScripts.bat "action=executeScripts" -targetEnv=%targetEnv% buildName="${params.BuildNum}" DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}" DBServerName="${params.DBServerName}"'
+        bat 'ExecuteImplScripts.bat "action=executeScripts" targetEnv="${params.targetEnv}" buildName="${params.BuildNum}" DBUserName="${params.DBUserName}" DBUserPwd="${params.DBUserPwd}" DBServerName="${params.DBServerName}"'
       }
     }
     stage('Stop Server') {
