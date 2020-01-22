@@ -4,8 +4,11 @@
 	REM NET use o: /delete /Y
 
 	set %1
+	echo target environment %buildName%
 	set %2
+	echo target environment %targetEnv%
 	set %3
+	echo DB User Name %DBUserName%
 	set %4
 	set %5
 	set %6
