@@ -4,7 +4,7 @@ REM setlocal enabledelayedexpansion
 	REM NET use o: /delete /Y
 	echo start script
 	set %1
-	echo target environment %buildName%
+	echo target environment %action%
 	set %2
 	echo target environment %targetEnv%
 	set %3
