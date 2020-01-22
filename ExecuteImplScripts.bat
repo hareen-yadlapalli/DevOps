@@ -5,8 +5,8 @@ REM setlocal enabledelayedexpansion
 	echo start script
 	set action1=%1
 	echo target environment %action1%
-	set %2
-	echo target environment %targetEnv%
+	set targetEnv1=%2
+	echo target environment %targetEnv1%
 	set %3
 	echo DB User Name %DBUserName%
 	set %4
