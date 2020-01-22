@@ -1,5 +1,5 @@
 @echo off
- setlocal enabledelayedexpansion
+REM setlocal enabledelayedexpansion
 
 	REM NET use o: /delete /Y
 	echo start script
