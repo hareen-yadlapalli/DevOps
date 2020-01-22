@@ -1,14 +1,11 @@
 @echo off
-REM setlocal enabledelayedexpansion
+ setlocal enabledelayedexpansion
 
 	REM NET use o: /delete /Y
-	echo start script
-	set action1=%1
-	echo target environment %action1%
-	set targetEnv1=%2
-	echo target environment %targetEnv1%
+
+	set %1
+	set %2
 	set %3
-	echo DB User Name %DBUserName%
 	set %4
 	set %5
 	set %6
