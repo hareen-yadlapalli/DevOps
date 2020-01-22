@@ -4,8 +4,8 @@ REM setlocal enabledelayedexpansion
 	REM NET use o: /delete /Y
 	echo start script
 	set %1
-	if "%1"=="" (
-    set /p action="Execute Scripts: "
+	if "%1"!="" (
+    set action="Execute Scripts: "
 	) 
 	echo target environment %action%
 	set %2
