@@ -6,7 +6,7 @@ set %3
 set %4
 set %5
 set %6
-
+echo in stop server
 if %canRestartServer%==true (
 echo "stopping server..."
 net use s: %serverName% /u:%serverUserName% %ServerUserPwd%
