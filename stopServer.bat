@@ -1,5 +1,7 @@
 @echo off
+echo before enable
 setlocal enabledelayedexpansion
+echo after enable
 set %1
 set %2
 set %3
