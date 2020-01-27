@@ -36,6 +36,7 @@
 	if /I "%%~xG"==".SQL" (
 
 	set /A argCount+=1
+	echo ImplQueryResults_Job!BUILD_NO!_!argCount!
 	echo Started >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log 
 	echo test
 	IF "!fileCount!" EQU "0" (
