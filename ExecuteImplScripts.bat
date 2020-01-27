@@ -10,6 +10,7 @@
 	set %5
 	set %6
 	set %7
+	echo %jobNumber%
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
 	REM echo %DBServerName%
