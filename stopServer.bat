@@ -25,8 +25,8 @@ if "!serverName:~%I%,1!"=="\" set L=%I%
 set /a I+=1
 goto l
 :ld
-echo %L%
-echo %serverName:~0,17%
+REM echo %L%
+echo Connected to server %serverName:~0,17%
 sc %serverName:~0,17% stop %serviceName%
 
 REM sc \\%serverName% stop %serviceName
