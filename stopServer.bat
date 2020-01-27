@@ -6,13 +6,7 @@ set %3
 set %4
 set %5
 set %6
-REM echo in stopServer.bat file
-REM echo serverName=%serverName%
-REM echo serverUserName=%serverUserName%
-REM echo serverPassword=%serverPassword%
-REM echo serviceName=%serviceName%
 
-REM echo canRestartServer=%canRestartServer%
 if %canRestartServer%==true (
 echo "stopping server..."
 net use s: %serverName% /u:%serverUserName% %ServerUserPwd%
