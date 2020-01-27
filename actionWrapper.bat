@@ -5,6 +5,7 @@ set %2
 set %3
 set %4
 set %5
+set %6
 REM echo action=!action!
 REM echo targetEnv=!targetEnv!
 REM echo buildName=!BuildNum!
