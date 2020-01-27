@@ -3,7 +3,7 @@
 
 	REM NET use o: /delete /Y
 
-	set %1 %2 %3 %4 %5 %6
+	set %1 %2 %3 %4 %5 %6 %7
 	REM set %2
 	REM set %3
 	REM set %4
@@ -34,6 +34,7 @@
 	set /A argCount+=1
 	echo Started >> ImplQueryResults!argCount!.log 
 	echo test
+	echo %jobNumber%
 	IF "!fileCount!" EQU "0" (
 	set fileName=%%~nxG
 	set /A fileCount=!fileCount!+1) 
