@@ -3,12 +3,12 @@
 
 	REM NET use o: /delete /Y
 
-	set %1
-	set %2
-	set %3
-	set %4
-	set %5
-	set %6
+	set %1 %2 %3 %4 %5 %6
+	REM set %2
+	REM set %3
+	REM set %4
+	REM set %5
+	REM set %6
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
 	REM echo %DBServerName%
