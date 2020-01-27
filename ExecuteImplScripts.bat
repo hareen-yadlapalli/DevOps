@@ -33,6 +33,7 @@
 
 	set /A argCount+=1
 	echo Started >> ImplQueryResults!argCount!.log 
+	echo test
 	IF "!fileCount!" EQU "0" (
 	set fileName=%%~nxG
 	set /A fileCount=!fileCount!+1) 
