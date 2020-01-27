@@ -22,6 +22,7 @@ pipeline {
         script {
           buildURL="${params.gitURL}/${params.BuildNum}.git"
           println "${buildURL}"
+          println "${BUILD_NUMBER}"
         }
 
       }
