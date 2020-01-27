@@ -53,7 +53,6 @@
   )
   	echo Implementation Scripts Execution if any have been completed
 	REM DIR
-    echo ArgCount calculated as !argCount!
 	IF "!argCount!" EQU "0" (
     echo No implementation SQL files are available in the given location !implFileLocation!
     ERROR
