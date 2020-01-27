@@ -19,14 +19,9 @@
 	set fileCount=0
 	set argCount=0
 	set errorsFound=false
-	set "BUILD_NO=%BUILD_NUMBER%"
-	echo %BUILD_NO%
-	echo %BUILD_NUMBER%
-	
 
 	set "origfileLocation=%cd%"
     set "implFileLocation=%cd%\BuildDir\SQLs\Implementation"
-	
 	
     REM echo file location set to !implFileLocation!
 	cd !implFileLocation!
@@ -36,7 +31,6 @@
 	if /I "%%~xG"==".SQL" (
 
 	set /A argCount+=1
-	echo ImplQueryResults_Job!BUILD_NUMBER!_!argCount!
 	echo Started >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log 
 	echo test
 	IF "!fileCount!" EQU "0" (
