@@ -36,7 +36,7 @@
 	if /I "%%~xG"==".SQL" (
 
 	set /A argCount+=1
-	echo Started >> ImplQueryResults!argCount!.log 
+	echo Started >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log 
 	echo test
 	IF "!fileCount!" EQU "0" (
 	set fileName=%%~nxG
@@ -47,10 +47,10 @@
 	set /A fileCount="!fileCount!"+1
 	REM echo Final FileName string is !fileName!
 	for /f "tokens=*" %%a in (%%~nxG) do (
-	echo  %%a >> ImplQueryResults!argCount!.log
+	echo  %%a >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log
 	)
 
-	echo Result >> ImplQueryResults!argCount!.log
+	echo Result >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log
 	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG
 	echo Executing the script file %%~nxG
 	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG >> ImplQueryResults!argCount!.log
