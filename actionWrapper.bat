@@ -1,5 +1,5 @@
-REM @echo off
-setlocal enabledelayedexpansion
+@echo off
+REM setlocal enabledelayedexpansion
 set %1
 set %2
 set %3
