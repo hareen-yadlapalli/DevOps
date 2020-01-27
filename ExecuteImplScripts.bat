@@ -36,8 +36,8 @@
 	if /I "%%~xG"==".SQL" (
 
 	set /A argCount+=1
-	echo ImplQueryResults_Job!BUILD_NO!_!argCount!
-	echo Started >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log 
+	echo ImplQueryResults_Job!BUILD_NUMBER!_!argCount!
+	echo Started >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log 
 	echo test
 	IF "!fileCount!" EQU "0" (
 	set fileName=%%~nxG
@@ -48,15 +48,15 @@
 	set /A fileCount="!fileCount!"+1
 	REM echo Final FileName string is !fileName!
 	for /f "tokens=*" %%a in (%%~nxG) do (
-	echo  %%a >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log
+	echo  %%a >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log
 	)
 
-	echo Result >> ImplQueryResults_Job!BUILD_NO!_!argCount!.log
+	echo Result >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log
 	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG
 	echo Executing the script file %%~nxG
 	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG >> ImplQueryResults!argCount!.log
 
-	FOR /F "tokens=* delims=" %%x in (ImplQueryResults!argCount!.log) DO echo %%x
+	FOR /F "tokens=* delims=" %%x in (ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log) DO echo %%x
 	) 
   )
   	echo Implementation Scripts Execution if any have been completed
@@ -67,7 +67,7 @@
     ERROR
     exit /b 1
     )
-	for /f %%i in ('findstr /i "Invalid Incorrect" ImplQueryResults*.log') do (
+	for /f %%i in ('findstr /i "Invalid Incorrect" ImplQueryResults_Job!BUILD_NUMBER!_*.log') do (
 	echo An error with the script %%i
 	set errorsFound=true
 	REM @echo I just found a %%i
