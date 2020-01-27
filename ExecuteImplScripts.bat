@@ -10,7 +10,6 @@
 	set %5
 	set %6
 	set %7
-	echo %jobNumber%
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
 	REM echo %DBServerName%
@@ -39,7 +38,6 @@
 	set /A argCount+=1
 	echo Started >> ImplQueryResults!argCount!.log 
 	echo test
-	echo %jobNumber%
 	IF "!fileCount!" EQU "0" (
 	set fileName=%%~nxG
 	set /A fileCount=!fileCount!+1) 
