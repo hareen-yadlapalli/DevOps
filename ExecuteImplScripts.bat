@@ -9,7 +9,6 @@
 	set %4
 	set %5
 	set %6
-	set %7
 	REM echo %DBUserName%
 	REM echo %DBUserPwd%
 	REM echo %DBServerName%
@@ -32,7 +31,6 @@
 
 	set /A argCount+=1
 	echo Started >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log 
-	echo test
 	IF "!fileCount!" EQU "0" (
 	set fileName=%%~nxG
 	set /A fileCount=!fileCount!+1) 
@@ -48,7 +46,7 @@
 	echo Result >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log
 	REM echo sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG
 	echo Executing the script file %%~nxG
-	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG >> ImplQueryResults!argCount!.log
+	sqlcmd -U %DBUserName% -P %DBUserPwd% -S %DBServerName% -i %%~nxG >> ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log
 
 	FOR /F "tokens=* delims=" %%x in (ImplQueryResults_Job!BUILD_NUMBER!_!argCount!.log) DO echo %%x
 	) 
