@@ -20,6 +20,9 @@
 	set fileCount=0
 	set argCount=0
 	set errorsFound=false
+	set "BUILD_NO=%BUILD_NUMBER%"
+	echo %BUILD_NO%
+	echo %BUILD_NUMBER%
 	
 
 	set "origfileLocation=%cd%"
