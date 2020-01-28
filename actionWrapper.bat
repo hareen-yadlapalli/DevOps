@@ -1,9 +1,14 @@
 @echo off
 setlocal enabledelayedexpansion
+echo in action wrapper
 set %1
+echo 1 action wrapper
 set %2
+echo 2 action wrapper
 set %3
+echo 3 action wrapper
 set %4
+echo 4 action wrapper
 set %5
 echo testing
 REM echo action=!action!
