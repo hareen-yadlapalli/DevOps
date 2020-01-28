@@ -40,6 +40,7 @@ if "!action!"=="stopServer" (
 		if "!property:~0,16!"=="!targetEnv!.allPropsRead" (
 			echo calling stop server
 			CALL stopServer.bat "serverName=!serverName!" "serviceName=!serviceName!" "serverUserName=!serverUserName!" "serverPassword=!ServerUserPwd!"
+		    echo stop server called
 		)
 	)	
 )
