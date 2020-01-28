@@ -1,15 +1,15 @@
 @echo off
 setlocal enabledelayedexpansion
 echo in action wrapper
-set %1
+set action=%1
 echo 1 action wrapper
-set %2
+set targetEnv=%2
 echo 2 action wrapper
-set %3
+set buildName=%3
 echo 3 action wrapper
-set %4
+set serverUserName=%4
 echo 4 action wrapper
-set %5
+set serverPassword=%5
 echo testing
 REM echo action=!action!
 REM echo targetEnv=!targetEnv!

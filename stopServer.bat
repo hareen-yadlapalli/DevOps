@@ -3,7 +3,7 @@ echo before enable
 setlocal enabledelayedexpansion
 echo after enable
 set %1
-echo after 1
+echo after 1 %1
 set %2
 echo after 2
 set %3
